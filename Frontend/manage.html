@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Product</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container form-container">
+        <header>
+            <h1 id="form-title">Add New Product</h1>
+            <a href="index.html" class="btn btn-secondary">⬅ Back to Inventory</a>
+        </header>
+
+        <form id="product-form">
+            <input type="hidden" id="product-id">
+
+            <div class="form-group">
+                <label for="name">Product Name *</label>
+                <input type="text" id="name" required>
+                <span class="error-msg" id="name-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category *</label>
+                <input type="text" id="category" required>
+                <span class="error-msg" id="category-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price ($) *</label>
+                <input type="number" id="price" step="0.01" min="0.01" required>
+                <span class="error-msg" id="price-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="stock">Stock Quantity *</label>
+                <input type="number" id="stock" min="0" required>
+                <span class="error-msg" id="stock-error"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success" id="submit-btn">Save Product</button>
+        </form>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Check if editing an existing product
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            if (id) {
+                prepareEditForm(id);
+            }
+        });
+        
+        document.getElementById('product-form').addEventListener('submit', handleFormSubmit);
+    </script>
+</body>
+</html>

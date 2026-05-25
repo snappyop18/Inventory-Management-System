@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Manager - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Product Inventory Manager</h1>
+            <a href="manage.html" class="btn btn-primary">➕ Add New Product</a>
+        </header>
+
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Price ($)</th>
+                        <th>Stock Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list">
+                    </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Load data on page load
+        document.addEventListener("DOMContentLoaded", fetchProducts);
+    </script>
+</body>
+</html>
